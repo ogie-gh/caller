@@ -2,7 +2,7 @@ name: Run Python Script and Echo JSON
 
 on:
   push:
-  workflow_dispactch:
+  workflow_dispatch:
 
 jobs:
   run_script:
