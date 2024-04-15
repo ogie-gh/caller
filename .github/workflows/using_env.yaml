@@ -2,7 +2,7 @@ name: Run Python Script and Echo JSON
 
 on:
   push:
-  workflow_dispatch:
+  workflow_dispactch:
 
 jobs:
   run_script:
@@ -10,16 +10,15 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
 
-    - name: Run Python script and set env var
-      run: |
-        echo "JSON_INPUT=$(python scripts/main.py)" >> $GITHUB_ENV
+    - name: Run Python script
+      run: python your_script.py
 
     - name: Echo JSON_INPUT
       run: echo "JSON_INPUT=$JSON_INPUT"
