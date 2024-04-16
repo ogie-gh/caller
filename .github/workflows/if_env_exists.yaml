@@ -1,21 +1,25 @@
 name: Test if env variable exists before running step
 
-on: [ 'workflow_dispatch', 'push' ]
+on: [ 'workflow_dispatch' ]
 
 jobs:
   checking-env:
     runs-on: ubuntu-latest
+      
     steps:
       - name: checkout code
         uses: actions/checkout@v4
 
-      - name: check env variable
+      # Initially check if JSON_INPUT is set. Assuming it's not yet set, this step won't run.
+      - name: check env variable 1
         run: echo "hey we got output"
-        if: $JSON_INPUT != ''
+        if: ${{ env.JSON_INPUT }} != ''
 
+      # This step populates JSON_INPUT dynamically.
       - name: populate output
-        run: scripts/main.py
+        run: echo "JSON_INPUT=value" >> $GITHUB_ENV
 
-      - name: check env variable
+      # Now JSON_INPUT should be set, and this check should pass.
+      - name: check env variable 2
         run: echo "hey we got output"
-        if: $JSON_INPUT != ''
+        if: ${{ env.JSON_INPUT }} != ''
