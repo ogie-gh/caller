@@ -18,7 +18,7 @@ jobs:
         if: ${{ env.JSON_INPUT }} != ''
 
       - name: Populate output
-        run: echo "JSON_INPUT="TESTY MCTEST!" >> $GITHUB_ENV
+        run: python scripts/main.py
 
       - name: Check env variable 2
         run: echo "hey we got output"
