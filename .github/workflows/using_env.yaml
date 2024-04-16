@@ -1,7 +1,6 @@
 name: Run Python Script and Echo JSON
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
