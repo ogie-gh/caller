@@ -11,7 +11,11 @@ jobs:
 
       - name: check env variable
         run: echo "hey we got output"
-        if: $JSON_INPUT
+        if: $JSON_INPUT != ''
 
       - name: populate output
         run: scripts/main.py
+
+      - name: check env variable
+        run: echo "hey we got output"
+        if: $JSON_INPUT != ''
