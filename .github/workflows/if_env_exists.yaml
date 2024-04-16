@@ -1,0 +1,17 @@
+name: Test if env variable exists before running step
+
+on: [ 'workflow_dispatch', 'push' ]
+
+jobs:
+  checking-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: check env variable
+        run: echo "hey we got output"
+        if: $JSON_INPUT
+
+      - name: populate output
+        run: scripts/main.py
