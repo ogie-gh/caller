@@ -20,7 +20,7 @@ jobs:
 
       # This step populates JSON_INPUT dynamically.
       - name: populate output
-        run: echo "JSON_INPUT=TEST" >> $GITHUB_ENV
+        run: python scripts/main.py
 
       - name: Debug env variable
         run: echo "JSON_INPUT='${{ env.JSON_INPUT }}'"
