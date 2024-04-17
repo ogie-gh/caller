@@ -5,7 +5,9 @@ on: [ 'workflow_dispatch', 'push' ]
 jobs:
   checking-env:
     runs-on: ubuntu-latest
-      
+    env:
+      json_input: $$ {{ env.JSON_INPUT }}
+  
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -15,11 +17,4 @@ jobs:
 
       - name: Check env variable 1
         run: echo "this should not have run"
-        if: "${{ env.JSON_INPUT }}" != ''
-
-      - name: Populate output
-        run: python scripts/main.py
-
-      - name: Check env variable 2
-        run: echo "hey we got output"
-        if: ${{ env.JSON_INPUT }} != ''
+        if: ${{ env.json_input }} != ''
