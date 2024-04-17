@@ -6,7 +6,7 @@ jobs:
   checking-env:
     runs-on: ubuntu-latest
     env:
-      json: $$ {{ env.JSON_INPUT }}
+      JIRA_INPUT: $$ {{ env.JSON_INPUT }}
   
     steps:
       - name: Checkout code
@@ -14,4 +14,4 @@ jobs:
 
       - name: Check env variable 1
         run: echo "this should not have run"
-        if: ${{ env.json }} != ''
+        if: ${{ env.JIRA_INPUT != '' }}
