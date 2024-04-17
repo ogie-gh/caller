@@ -15,7 +15,7 @@ jobs:
 
       # Initially check if JSON_INPUT is set. Assuming it's not yet set, this step won't run.
       - name: check env variable 1
-        run: echo "hey we got output"
+        run: echo "this shouldn't run"
         if: ${{ env.JSON_INPUT != '' }} 
 
       # This step populates JSON_INPUT dynamically.
