@@ -6,15 +6,12 @@ jobs:
   checking-env:
     runs-on: ubuntu-latest
     env:
-      json_input: $$ {{ env.JSON_INPUT }}
+      json: $$ {{ vars.JSON_INPUT }}
   
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug env variable
-        run: echo "JSON_INPUT='${{ env.JSON_INPUT }}'"
-
       - name: Check env variable 1
         run: echo "this should not have run"
-        if: ${{ env.json_input }} = ''
+        if: ${{ env.json }} = ''
