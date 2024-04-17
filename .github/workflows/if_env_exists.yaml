@@ -17,4 +17,4 @@ jobs:
 
       - name: Check env variable 1
         run: echo "this should not have run"
-        if: ${{ env.json_input }} != ''
+        if: ${{ env.json_input }} = ''
