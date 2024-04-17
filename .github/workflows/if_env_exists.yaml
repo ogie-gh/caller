@@ -3,7 +3,7 @@ name: Test if env variable exists before running step
 on: [ 'workflow_dispatch', 'push' ]
 
 env:
-  JIRA_INPUT: $$ {{ env.JSON_INPUT }}
+  JIRA_INPUT: $$ {{ vars.JSON_INPUT }}
 
 jobs:
   checking-env:
