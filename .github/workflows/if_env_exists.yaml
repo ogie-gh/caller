@@ -6,7 +6,7 @@ jobs:
   checking-env:
     runs-on: ubuntu-latest
     env:
-      json: $$ {{ vars.JSON_INPUT }}
+      json: $$ {{ env.JSON_INPUT }}
   
     steps:
       - name: Checkout code
